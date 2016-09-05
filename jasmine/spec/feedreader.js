@@ -51,19 +51,41 @@ $(function() {
 
     /* TODO: Write a new test suite named "The menu" */
     describe('The menu', function() {
+        // Declare variable to assign body element
+        var bodyElm;
+        // Declare variable to assign menu icon element
+        var menuIcon;
+        // Assign body element into variable
+        beforeEach(function() {
+            bodyElm = $('body');
+            menuIcon = $('.menu-icon-link');
+        });
         /* TODO: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
-         
+         it('The menu is hidden by default', function() {
+           // Check body element has 'menu-hidden' class or not
+           expect(bodyElm.hasClass('menu-hidden')).toBe(true);
+         });
+
          /* TODO: Write a test that ensures the menu changes
           * visibility when the menu icon is clicked. This test
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          it('The menu changes visibility', function() {
+            if(bodyElm.hasClass('menu-hidden') === true) {
+              menuIcon.trigger('click');
+              expect(bodyElm.hasClass('menu-hidden')).toBe(false);
+            }else {
+              menuIcon.trigger('click');
+              expect(bodyElm.hasClass('menu-hidden')).toBe(true);
+            }
+          });
     });
-        
+
 
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
@@ -74,7 +96,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
     })
-        
+
 
     /* TODO: Write a new test suite named "New Feed Selection"*/
     describe('New Feed Seclection', function() {
@@ -83,5 +105,5 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
     })
-        
+
 }());

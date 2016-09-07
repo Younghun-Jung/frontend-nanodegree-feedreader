@@ -31,8 +31,11 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
+         // Define spec for URLs definition
          it('All URLs are defined', function() {
+            // Using Array allFeeds, check each url of all feeds is defined or not
             for(var i=0; i< allFeeds.length; i++) {
+                // Apply expect function for each url in allFeeds array
                 expect(allFeeds[i].url).toBeDefined();
             }
          });
@@ -41,8 +44,11 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+         // Define spec for names definition
          it('All names are defined', function() {
+            // Using Array allFeeds, check each name of all feeds is defined or not
             for(var i=0; i< allFeeds.length; i++) {
+                // Apply expect function for each name in allFeeds array
                 expect(allFeeds[i].name).toBeDefined();
             }
          });
@@ -65,6 +71,7 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+         // Define spec for menu-hidden default
          it('The menu is hidden by default', function() {
            // Check body element has 'menu-hidden' class or not
            expect(bodyElm.hasClass('menu-hidden')).toBe(true);
@@ -75,12 +82,20 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+          // Define spec for visibility of menu-change
           it('The menu changes visibility', function() {
+            // Check body element has menu-hidden class or not
             if(bodyElm.hasClass('menu-hidden') === true) {
+              // Using trigger function, Execute 'click' event on menuIcon
               menuIcon.trigger('click');
+              // If body element has 'menu-hidden' class before,
+              // body element does not have 'menu-hidden' class after executing toggle()
               expect(bodyElm.hasClass('menu-hidden')).toBe(false);
             }else {
+              // Using trigger function, Execute 'click' event on menuIcon
               menuIcon.trigger('click');
+              // If body element does not have 'menu-hidden' class before,
+              // body element should have 'menu-hidden' class after executing toggle()
               expect(bodyElm.hasClass('menu-hidden')).toBe(true);
             }
           });
@@ -95,6 +110,32 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+         beforeEach(function(done) {
+            // ID of Initial entrie is 0
+            // Passing callback function done() to parameter 'cb' of loadFeed function in app.js
+            loadFeed(0, done);
+         });
+
+         it('There is at least a single .entry element in .feed container', function(done) {
+            // Declare variable for checking .entry being or not
+            // boolean type.
+            //console.log(done);
+            var flag;
+            // If .entry element(s) exist(s) under .feed, flag is true
+            if($('.feed').find('.entry').length > 0) {
+                flag = true;
+                //console.log($('.feed').find('.entry').length); // Check the number of entries
+            } else {
+                // If .entry element(s) do/does not exist under .feed, flag is false
+                flag = false;
+            }
+
+            // Set expect function on flag variable
+            expect(flag).toBe(true);
+            //console.log('flag expect');
+            // Call callback function
+            done();
+         })
     })
 
 
@@ -104,6 +145,24 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+         beforeEach(function(done) {
+            // Passing parameter 'id':1 for checking change of previous feed
+            //console.log('start loadFeed in beforeEach');
+            loadFeed(1, done);
+         });
+
+         it('The content actually changes when a new feed is loaded', function(done) {
+            console.log('init 2');
+            // Declare variable str and
+            // Assign text content in the 0th child of .entry element into str
+            var str = $('.entry').children().eq(0).text();
+            //console.log(str); // check str content
+            // If new feed(id is 1) is loaded, 0th content needs to be 'My New ~~'
+            expect(str).toBe('My New Favorite ES6 Toy: Destructured Objects as Parameters');
+            // Execute callback function
+            //console.log('done flag');
+            done();
+         });
     })
 
 }());

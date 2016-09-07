@@ -29,6 +29,7 @@ var allFeeds = [
  */
 function init() {
     // Load the first feed we've defined (index of 0).
+    //console.log('init');
     loadFeed(0);
 }
 
@@ -43,14 +44,14 @@ function init() {
  function loadFeed(id, cb) {
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
-
+     //console.log("id: " + id);
      $.ajax({
        type: "POST",
        url: 'https://rsstojson.udacity.com/parseFeed',
        data: JSON.stringify({url: feedUrl}),
        contentType:"application/json",
        success: function (result, status){
-
+                    console.log('success');
                  var container = $('.feed'),
                      title = $('.header-title'),
                      entries = result.feed.entries,
@@ -71,6 +72,9 @@ function init() {
 
                  if (cb) {
                      cb();
+                     //console.log(feedName + ': call back with cb');
+                 }else {
+                    //console.log(feedName + ": call back?? without cb");
                  }
                },
        error: function (result, status, err){
@@ -129,7 +133,6 @@ $(function() {
      * on the body to perform the hiding/showing of our menu.
      */
     menuIcon.on('click', function() {
-        console.log('menu click');
         $('body').toggleClass('menu-hidden');
     });
 }());

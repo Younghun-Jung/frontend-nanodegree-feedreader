@@ -17,12 +17,12 @@ Github URL here: https://github.com/Younghun-Jung/frontend-nanodegree-feedreader
 - JQuery library
 
 ## Reference
-1. Check there is/are specific element(s) or not
-- http://stackoverflow.com/questions/10145681/jquery-children-returns-a-boolean </br>
+- Check there is/are specific element(s) or not:
+http://stackoverflow.com/questions/10145681/jquery-children-returns-a-boolean </br>
 - https://api.jquery.com/find/ </br>
-2. Execute handlers by force at specific point of time
-- http://api.jquery.com/trigger/ </br>
-3. Understand details Asynchronous Support on jasmine js
-- http://jasmine.github.io/2.0/introduction.html </br>
-4. Find childrenNode[n]
--https://api.jquery.com/eq/ </br>
+- Execute handlers by force at specific point of time:
+http://api.jquery.com/trigger/ </br>
+- Understand details Asynchronous Support on jasmine js:
+http://jasmine.github.io/2.0/introduction.html </br>
+- Find childrenNode[n]:
+https://api.jquery.com/eq/ </br>

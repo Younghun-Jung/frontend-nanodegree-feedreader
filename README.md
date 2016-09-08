@@ -3,7 +3,7 @@
 
 ## Introduction
 This project is about TDD(Test-Driven Development), testing with JavaScript by using Jasmine js. This project used web applicatoin from 'Feed Reader Testing' on Front-end Development Udacity course.
-</br>
+
 Github URL here: https://github.com/Younghun-Jung/frontend-nanodegree-feedreader
 
 ## How to use
@@ -18,11 +18,11 @@ Github URL here: https://github.com/Younghun-Jung/frontend-nanodegree-feedreader
 
 ## Reference
 ### Check there is/are specific element(s) or not
-- http://stackoverflow.com/questions/10145681/jquery-children-returns-a-boolean 
-- https://api.jquery.com/find/ </br>
+- http://stackoverflow.com/questions/10145681/jquery-children-returns-a-boolean
+- https://api.jquery.com/find/
 ### Execute handlers by force at specific point of time
-- http://api.jquery.com/trigger/ </br>
+- http://api.jquery.com/trigger/
 ### Understand details Asynchronous Support on jasmine js
-- http://jasmine.github.io/2.0/introduction.html </br>
+- http://jasmine.github.io/2.0/introduction.html
 ### Find childrenNode[n]
--https://api.jquery.com/eq/ </br>
+-https://api.jquery.com/eq/ <

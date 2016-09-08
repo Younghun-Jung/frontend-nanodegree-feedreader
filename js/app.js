@@ -21,6 +21,12 @@ var allFeeds = [
         name: 'Linear Digressions',
         url: 'http://feeds.feedburner.com/udacity-linear-digressions'
     }
+    /*
+    , {
+        name: "",
+        url: "" 
+    }
+    */
 ];
 
 /* This function starts up our application. The Google Feed
@@ -29,7 +35,7 @@ var allFeeds = [
  */
 function init() {
     // Load the first feed we've defined (index of 0).
-    //console.log('init');
+    console.log('init');
     loadFeed(0);
 }
 
@@ -44,7 +50,7 @@ function init() {
  function loadFeed(id, cb) {
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
-     //console.log("id: " + id);
+     console.log("id: " + id);
      $.ajax({
        type: "POST",
        url: 'https://rsstojson.udacity.com/parseFeed',
@@ -72,9 +78,9 @@ function init() {
 
                  if (cb) {
                      cb();
-                     //console.log(feedName + ': call back with cb');
+                     console.log(feedName + ': call back with cb');
                  }else {
-                    //console.log(feedName + ": call back?? without cb");
+                    console.log(feedName + ": call back?? without cb");
                  }
                },
        error: function (result, status, err){

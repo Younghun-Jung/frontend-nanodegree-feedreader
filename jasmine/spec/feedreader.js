@@ -40,7 +40,7 @@ $(function() {
                 //console.log("allFeeds length: " + allFeeds[i].length);
                 //console.log("allFeeds URL length: " + allFeeds[i].url.length);
                 expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].length).not.toBe(0);
+                expect(allFeeds[i].url.length).not.toBe(0);
             }
          });
 
@@ -54,7 +54,7 @@ $(function() {
             for(var i=0; i< allFeeds.length; i++) {
                 // Apply expect function for each name in allFeeds array
                 expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].length).not.toBe(0);
+                expect(allFeeds[i].name.length).not.toBe(0);
             }
          });
     });
@@ -63,14 +63,10 @@ $(function() {
     /* Description: Write a new test suite named "The menu" */
     describe('The menu', function() {
         // Declare variable to assign body element
-        var bodyElm;
+        var bodyElm = $('body');
         // Declare variable to assign menu icon element
-        var menuIcon;
-        // Assign body element into variable
-        beforeEach(function() {
-            bodyElm = $('body');
-            menuIcon = $('.menu-icon-link');
-        });
+        var menuIcon = $('.menu-icon-link');
+
         /* Description: Write a test that ensures the menu element is
          * hidden by default. You'll have to analyze the HTML and
          * the CSS to determine how we're performing the
@@ -115,14 +111,17 @@ $(function() {
             loadFeed(0, done);
          });
 
-         it('There is at least a single .entry element in .feed container', function(done) {
+         // non
+         it('There is at least a single .entry element in .feed container', function(/*done*/) {
             // Declare variable for checking .entry being or not
             // boolean type.
             //console.log(done);
             // Assign length of '.entry' elements under '.feed' into variable
             var entryLength = $('.feed').find('.entry').length;
+            // var entryLength = document.qurySelectorAll('.feed .entry');
+            // var entryLength = $('.feed .entry');
             expect(entryLength).toBeGreaterThan(0);
-            done();
+            //done();
          })
     })
 
